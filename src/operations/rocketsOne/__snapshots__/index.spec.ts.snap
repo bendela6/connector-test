@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rocketsOne operation should return 404 provider not found 1`] = `
+Object {
+  "body": Object {
+    "message": "Provider nasa not found",
+  },
+  "status": 404,
+}
+`;
+
+exports[`rocketsOne operation should return a 200 response 1`] = `
+Object {
+  "body": Object {
+    "company": "SPACEX",
+    "cost_per_launch": Object {
+      "amount": 50000000,
+      "currency": "USD",
+    },
+    "country": "United States",
+    "id": "2",
+    "main_image": "https://farm1.staticflickr.com/929/28787338307_3453a11a77_b.jpg",
+  },
+  "status": 200,
+}
+`;
+
+exports[`rocketsOne operation should return a 400 missing provider 1`] = `
+Object {
+  "body": Object {
+    "message": "Provider header is required",
+  },
+  "status": 400,
+}
+`;
+
+exports[`rocketsOne operation should return a 400 missing rocketId 1`] = `
+Object {
+  "body": Object {
+    "message": "Rocket ID is required",
+  },
+  "status": 400,
+}
+`;
+
+exports[`rocketsOne operation should return a 404 rocket not found 1`] = `
+Object {
+  "body": Object {
+    "message": "Not Found",
+  },
+  "status": 404,
+}
+`;

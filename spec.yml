@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: Apideck
+  version: 0.0.1
+servers:
+  - url: "https://unify.apideck.com"
+externalDocs:
+  description: Apideck Developer Docs
+  url: "https://developers.apideck.com"
+security:
+  - apiKey: []
+paths:
+  /hello:
+    get:
+      operationId: hello
+      responses:
+        "200":
+          description: "Say hello"
+          content: {}
+  /space/rockets/{rocketId}:
+    get:
+      operationId: rocketsOne
+      parameters:
+        - name: rocketId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: "falcon9"
+        - name: x-provider
+          in: header
+          schema:
+            type: string
+          required: true
+          example: "spacex"
+      responses:
+        "200":
+          description: "Get a rocket"
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/RocketOneResponse"
+
+
+components:
+  schemas:
+    RocketOneResponse:
+      type: "object"
+      required:
+        - id
+        - company
+        - country
+        - main_image
+        - cost_per_launch
+      properties:
+        id:
+          type: "string"
+          example: "12345"
+        company:
+          type: "string"
+          example: "SpaceX"
+        country:
+          type: "string"
+          example: "United States"
+        main_image:
+          type: "string"
+          example: "https://example.com/image.jpg"
+        cost_per_launch:
+          type: "object"
+          required:
+            - amount
+            - currency
+          example:
+            amount: 62000000
+            currency: "USD"
+          properties:
+            amount:
+              type: "number"
+              example: 62000000
+            currency:
+              type: "string"
+              example: "USD"
