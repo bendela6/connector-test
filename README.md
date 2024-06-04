@@ -70,5 +70,3 @@ Important notes when adding a new service:
 - the service should have a `spec.yml` file that contains the openapi specs for the service.
 - the service should be added to the `providers` array in `src/services/providers.ts`.
 - you need to run the `npm run generate-ts` command to generate the types and json specs files.
-
-```
